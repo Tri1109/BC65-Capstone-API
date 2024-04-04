@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CyberPhone</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Awesome Font -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="/Asset/css/main.css" />
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav-header">
+        <div class="nav-title">
+          <a href="../index.html"
+            ><i class="fa-lg fa-solid fa-robot me-3"></i> Cyber Phone</a
+          >
+        </div>
+      </div>
+      <ul class="nav-list">
+        <li>
+          <a href="/Admin/admin.html"
+            ><i class="fas fa-home fa-xl mb-1"></i><br />Admin</a
+          >
+        </li>
+        <li>
+          <a href="../index.html"
+            ><i class="fa-solid fa-xl fa-store"></i><br />Customer</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <div class="admin_content">
+      <div class="top" style="display: flex; text-align: left">
+        <div style="width: 90%; color: white; margin: auto">
+          Phone Management
+        </div>
+        <div style="text-align: right !important; margin: auto">
+          <button
+            type="button"
+            class="btn-open-popup"
+            data-toggle="modal"
+            data-target="#exampleModalCenter"
+          >
+            <i class="fa-solid fa-circle-plus me-2"></i> Add Phone
+          </button>
+        </div>
+      </div>
+      <!-------------- Modal -------------->
+      <div
+        class="modal fade"
+        id="exampleModalCenter"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">
+                Phone Management
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="popup-box">
+                <form class="form-container">
+                  <input
+                    class="form-input"
+                    type="text"
+                    placeholder="Phone name"
+                    id="name"
+                    name="name"
+                    required
+                  />
+                  <input
+                    class="form-input"
+                    type="text"
+                    placeholder="Price"
+                    id="price"
+                    name="price"
+                    required
+                  />
+                  <input
+                    class="form-input"
+                    type="text"
+                    placeholder="Screen"
+                    id="screen"
+                    name="screen"
+                    required
+                  />
+                  <input
+                    class="form-input"
+                    type="text"
+                    placeholder="Back Camera"
+                    id="backCamera"
+                    name="backCamera"
+                    required
+                  />
+                  <input
+                    class="form-input"
+                    type="text"
+                    placeholder="Front Camera"
+                    id="frontCamera"
+                    name="frontCamera"
+                    required
+                  />
+                  <input
+                    class="form-input"
+                    type="text"
+                    placeholder="Image link"
+                    id="imageLink"
+                    name="imageLink"
+                    required
+                  />
+                  <input
+                    class="form-input"
+                    type="text"
+                    placeholder="Decription"
+                    id="description"
+                    name="description"
+                    required
+                  />
+                  <select class="form-input" name="chucvu" id="type">
+                    <option selected="" disabled="">Select brand</option>
+                    <option>Apple</option>
+                    <option>Samsung</option>
+                  </select>
+                </form>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Đóng
+              </button>
+              <button type="button" class="btn btn-primary">
+                Thêm sản phẩm
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-------------- Table -------------->
+      <table style="width: 100%">
+        <tr class="tieude">
+          <th>#</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Photo</th>
+          <th>Decription</th>
+          <th><em class="fa fa-cog"></em>Action</th>
+        </tr>
+      </table>
+    </div>
+
+    <!-------------- Footer -------------->
+    <footer class="footer">
+      <section class="section-social">
+        <div class="text-right">
+          <span>Get connected with us on social networks:</span>
+        </div>
+        <div>
+          <a href="#" class="me-4 text-reset">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="me-4 text-reset">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="me-4 text-reset">
+            <i class="fab fa-google"></i>
+          </a>
+          <a href="#" class="me-4 text-reset">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="me-4 text-reset">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="#" class="me-4 text-reset">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </section>
+      <section class="footer2">
+        <div class="container-footer">
+          <div class="row">
+            <div class="colmobile col-6">
+              <h6>
+                <i
+                  class="fa-lg fa-solid fa-robot me-3"
+                  style="margin-right: 30px"
+                ></i
+                >Cyber Phone
+              </h6>
+              <p>
+                We pride ourselves on our efficiency and hard work, but most of
+                all our ability to source you the best quality and best value
+                products and devices in the market.
+              </p>
+            </div>
+            <div class="colmobile col-2">
+              <!-- Links -->
+              <h6>Brands</h6>
+              <p>
+                <a href="#" class="text-reset">iPhone</a>
+              </p>
+              <p>
+                <a href="#" class="text-reset">Sumsung</a>
+              </p>
+              <p>
+                <a href="#" class="text-reset">Xiaomi</a>
+              </p>
+              <p>
+                <a href="#" class="text-reset">Oppo</a>
+              </p>
+            </div>
+            <div class="colmobile col-2">
+              <!-- Links -->
+              <h6>Useful links</h6>
+              <p>
+                <a href="#" class="text-reset">Pricing</a>
+              </p>
+              <p>
+                <a href="#" class="text-reset">Settings</a>
+              </p>
+              <p>
+                <a href="#" class="text-reset">Orders</a>
+              </p>
+              <p>
+                <a href="#" class="text-reset">Help</a>
+              </p>
+            </div>
+            <div class="colmobile col-2">
+              <!-- Links -->
+              <h6>Contact</h6>
+              <p><i class="fas fa-home me-3"></i> Da Nang, Thanh Khe, VN</p>
+              <p>
+                <i class="fas fa-envelope me-3"></i>
+                cyberphone@mail.com
+              </p>
+              <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+              <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="copyright">
+        © 2022 Copyright:
+        <a class="text-reset fw-bold" href="$">Cyber Phone</a>
+      </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src=""></script>
+  </body>
+</html>
