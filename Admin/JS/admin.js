@@ -25,9 +25,9 @@ document.getElementById("myModal").onclick = function () {
   $("#updateProduct").hide();
   $("#addProduct").show();
 };
+
 function addProduct() {
   var sp = getInfo();
-
   var isValid = kiemTraRong(
     sp.name,
 
@@ -57,7 +57,7 @@ function addProduct() {
   isValid &=
     kiemTraRong(sp.image, "#tbImg", "Không được để rỗng") &&
     checkImage(sp.image, "#tbImg", "Đường dẫn không đúng định dạng") &&
-    kiemTraTrung(sp.image, productList, "#tbImg", "Đường link đã tồn tại");
+    kiemTraTrungImage(sp.image, productList, "#tbImg", "Đường link đã tồn tại");
 
   if (isValid) {
     productServ
@@ -94,13 +94,46 @@ function editProduct(id) {
 }
 function updateProduct() {
   var sp = getInfo();
-  productServ
-    .updateProductByID(sp.id, sp)
-    .then(function (respone) {
-      $("#exampleModalCenter").modal("hide");
-      fetchProductList();
-    })
-    .catch(function (err) {});
+  var isValid = kiemTraRong(
+    sp.name,
+
+    "#tbTenSP",
+    "Tên Sản Phẩm không được để trống"
+  );
+  // Kiểm tra Tên
+  isValid &=
+    kiemTraRong(sp.name, "#tbTenSP", "Tên Sản Phẩm không được để trống") &&
+    kiemTraChu(
+      sp.name,
+      "#tbTenSP",
+      "Sản phẩm phải thuộc dòng Iphone hoặc Samsung"
+    ) &&
+    kiemTraTrung(sp.name, productList, "#tbTenSP", "Tên sản phẩm đã tồn tại");
+  // Kiểm tra giá
+  isValid &=
+    kiemTraRong(sp.price, "#tbGia", "Giá sản phẩm không được để trống") &&
+    kiemTraKySo(sp.price, "#tbGia", "Giá sản phẩm phải là số");
+  // Kiểm tra screen,front,back,description,select
+  isValid &= kiemTraRong(sp.screen, "#tbScreen", "Không được để rỗng");
+  isValid &= kiemTraRong(sp.backCamera, "#tbBack", "Không được để rỗng");
+  isValid &= kiemTraRong(sp.frontCamera, "#tbFront", "Không được để rỗng");
+  isValid &= kiemTraRong(sp.desc, "#tbMoTa", "Không được để rỗng");
+  isValid &= kiemTraLoai(sp.type, "#tbLoai", "Vui lòng chọn loại điện thoại");
+  // Kiểm tra định dạng file IMG
+  isValid &=
+    kiemTraRong(sp.image, "#tbImg", "Không được để rỗng") &&
+    checkImage(sp.image, "#tbImg", "Đường dẫn không đúng định dạng") &&
+    kiemTraTrungImage(sp.image, productList, "#tbImg", "Đường link đã tồn tại");
+
+  if (isValid) {
+    productServ
+      .updateProductByID(sp.id, sp)
+      .then(function (respone) {
+        $("#exampleModalCenter").modal("hide");
+        fetchProductList();
+      })
+      .catch(function (err) {});
+  }
 }
 
 document.querySelector("#btnTimSP").onclick = function () {

@@ -62,8 +62,30 @@ function kiemTraLoai(value, idErr, message) {
 }
 // Kiểm tra trùng
 function kiemTraTrung(value, array, idErr, message) {
+  // Loại bỏ các ký tự không phải là chữ cái và số từ tên sản phẩm
+  var checkKitu = value.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+
+  // Tìm kiếm trong mảng sản phẩm xem có sản phẩm nào có phần loại bỏ ký tự không phải là chữ cái và số giống với checkKitu không
   var viTri = array.findIndex(function (dt) {
-    return dt.name === value;
+    var checkName = dt.name.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+    return checkName === checkKitu;
+  });
+
+  if (viTri != -1) {
+    document.querySelector(idErr).innerHTML = message;
+    document.querySelector(idErr).style.display = "flex";
+    return false;
+  } else {
+    document.querySelector(idErr).innerHTML = "";
+    return true;
+  }
+}
+
+function kiemTraTrungImage(value, array, idErr, message) {
+  var checkImage = value.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+  var viTri = array.findIndex(function (dt) {
+    var isImage = dt.image.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+    return isImage === checkImage;
   });
   if (viTri != -1) {
     document.querySelector(idErr).innerHTML = message;
