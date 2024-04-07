@@ -23,7 +23,7 @@
     />
 
     <!-- Main CSS -->
-    <link rel="stylesheet" href="/Asset/css/main.css" />
+    <link rel="stylesheet" href="../Asset/css/main.css" />
   </head>
   <body>
     <nav class="nav">
@@ -36,7 +36,7 @@
       </div>
       <ul class="nav-list">
         <li>
-          <a href="/Admin/admin.html"
+          <a href="./admin.html"
             ><i class="fas fa-home fa-xl mb-1"></i><br />Admin</a
           >
         </li>
@@ -56,6 +56,7 @@
           <button
             type="button"
             class="btn-open-popup"
+            id="myModal"
             data-toggle="modal"
             data-target="#exampleModalCenter"
           >
@@ -93,19 +94,32 @@
                   <input
                     class="form-input"
                     type="text"
+                    placeholder="id"
+                    id="MaSP"
+                    name="MaSP"
+                    required
+                    style="display: none"
+                  />
+
+                  <input
+                    class="form-input"
+                    type="text"
                     placeholder="Phone name"
-                    id="name"
-                    name="name"
+                    id="TenSP"
+                    name="TenSP"
                     required
                   />
+                  <span class="sp-thongbao" id="tbTenSP"></span>
+
                   <input
                     class="form-input"
                     type="text"
                     placeholder="Price"
-                    id="price"
-                    name="price"
+                    id="GiaSP"
+                    name="GiaSP"
                     required
                   />
+                  <span class="sp-thongbao" id="tbGia"></span>
                   <input
                     class="form-input"
                     type="text"
@@ -114,6 +128,7 @@
                     name="screen"
                     required
                   />
+                  <span class="sp-thongbao" id="tbScreen"></span>
                   <input
                     class="form-input"
                     type="text"
@@ -122,6 +137,7 @@
                     name="backCamera"
                     required
                   />
+                  <span class="sp-thongbao" id="tbBack"></span>
                   <input
                     class="form-input"
                     type="text"
@@ -130,27 +146,31 @@
                     name="frontCamera"
                     required
                   />
+                  <span class="sp-thongbao" id="tbFront"></span>
                   <input
                     class="form-input"
                     type="text"
                     placeholder="Image link"
-                    id="imageLink"
-                    name="imageLink"
+                    id="HinhSP"
+                    name="HinhSP"
                     required
                   />
+                  <span class="sp-thongbao" id="tbImg"></span>
                   <input
                     class="form-input"
                     type="text"
                     placeholder="Decription"
-                    id="description"
-                    name="description"
+                    id="MoTaSP"
+                    name="MoTaSP"
                     required
                   />
-                  <select class="form-input" name="chucvu" id="type">
-                    <option selected="" disabled="">Select brand</option>
-                    <option>Apple</option>
-                    <option>Samsung</option>
+                  <span class="sp-thongbao" id="tbMoTa"></span>
+                  <select class="form-input" name="type" id="type">
+                    <option value="select">Select brand</option>
+                    <option value="iphone">iphone</option>
+                    <option value="samsung">Samsung</option>
                   </select>
+                  <span class="sp-thongbao" id="tbLoai"></span>
                 </form>
               </div>
             </div>
@@ -162,8 +182,21 @@
               >
                 Đóng
               </button>
-              <button type="button" class="btn btn-primary">
+              <button
+                type="button"
+                class="btn btn-primary"
+                onclick="addProduct()"
+                id="addProduct"
+              >
                 Thêm sản phẩm
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                onclick="updateProduct()"
+                id="updateProduct"
+              >
+                Cập Nhật
               </button>
             </div>
           </div>
@@ -171,14 +204,50 @@
       </div>
       <!-------------- Table -------------->
       <table style="width: 100%">
-        <tr class="tieude">
-          <th>#</th>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Photo</th>
-          <th>Decription</th>
-          <th><em class="fa fa-cog"></em>Action</th>
-        </tr>
+        <thead>
+          <tr>
+            <td>
+              <button
+                class="btn btn-primary mb-3 btn-sort"
+                onclick="sapxep(productList)"
+              >
+                Sắp xếp theo giá (tăng)
+              </button>
+            </td>
+          </tr>
+          <tr class="tieude">
+            <th style="border: 1px solid #000">#</th>
+            <th style="border: 1px solid #000">Name</th>
+            <th style="border: 1px solid #000">Price</th>
+            <th style="border: 1px solid #000">Photo</th>
+            <th style="border: 1px solid #000">Decription</th>
+            <th style="border: 1px solid #000">
+              <em class="fa fa-cog"></em>Action
+            </th>
+          </tr>
+          <tr>
+            <div class="row my-3">
+              <div class="col">
+                <div class="input-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Nhập Tên Điện Thoại ..."
+                    id="searchName"
+                    fdprocessedid="jzk4vb"
+                  />
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="btnTimSP"
+                      ><i class="fa fa-search"></i
+                    ></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </tr>
+          <tr></tr>
+        </thead>
+        <tbody id="tblDanhSachSP"></tbody>
       </table>
     </div>
 
@@ -295,6 +364,8 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    <!-- validation  -->
+    <script src="./JS/validation.js"></script>
     <!-- Axios -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"
@@ -303,11 +374,11 @@
       referrerpolicy="no-referrer"
     ></script>
     <!-- Model -->
-    <script src="/App/models/product.js"></script>
+    <script src="../App/models/product.js"></script>
     <!-- Controller -->
-    <script src="/App/controller/controller.js"></script>
+    <script src="../App/controller/controller.js"></script>
     <!-- service -->
-    <script src="/App/services/productServ.js"></script>
+    <script src="../App/services/productServ.js"></script>
     <!-- Main JS -->
     <script src="./JS/admin.js"></script>
   </body>
