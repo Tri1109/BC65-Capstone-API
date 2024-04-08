@@ -51,7 +51,11 @@ function checkImage(url, idErr, message) {
 
 // Kiểm tra loại
 function kiemTraLoai(value, idErr, message) {
-  if (value === "iphone" || value === "samsung") {
+  // Chuyển đổi giá trị nhập vào thành chữ thường
+  var lowerCaseValue = value.toLowerCase();
+
+  // So sánh giá trị nhập vào với các giá trị thuộc dòng "iphone" hoặc "samsung"
+  if (lowerCaseValue === "iphone" || lowerCaseValue === "samsung") {
     document.querySelector(idErr).innerHTML = "";
     return true;
   } else {
@@ -60,13 +64,16 @@ function kiemTraLoai(value, idErr, message) {
     return false;
   }
 }
-// Kiểm tra trùng
-function kiemTraTrung(value, array, idErr, message) {
-  // Loại bỏ các ký tự không phải là chữ cái và số từ tên sản phẩm
+// Kiểm tra trùng tên sản phẩm, tránh so sánh với phần tử đang cập nhật
+function kiemTraTrung(value, array, idErr, message, currentId) {
   var checkKitu = value.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
 
-  // Tìm kiếm trong mảng sản phẩm xem có sản phẩm nào có phần loại bỏ ký tự không phải là chữ cái và số giống với checkKitu không
-  var viTri = array.findIndex(function (dt) {
+  // Lọc ra những sản phẩm có ID khác với currentId
+  var filteredArray = array.filter(function (dt) {
+    return dt.id !== currentId;
+  });
+
+  var viTri = filteredArray.findIndex(function (dt) {
     var checkName = dt.name.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
     return checkName === checkKitu;
   });
@@ -81,13 +88,30 @@ function kiemTraTrung(value, array, idErr, message) {
   }
 }
 
-function kiemTraTrungImage(value, array, idErr, message) {
-  var checkImage = value.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
-  var viTri = array.findIndex(function (dt) {
-    var isImage = dt.image.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
-    return isImage === checkImage;
+// Kiểm tra trùng đường link hình ảnh, tránh so sánh với phần tử đang cập nhật
+function kiemTraTrungImage(
+  value,
+  array,
+  idErr,
+  message,
+  currentId,
+  currentImage
+) {
+  var checkImage = value.toLowerCase();
+  var currentImageLowerCase = currentImage.toLowerCase();
+
+  // Lọc ra những sản phẩm có ID khác với currentId
+  var filteredArray = array.filter(function (dt) {
+    return dt.id !== currentId;
   });
-  if (viTri != -1) {
+
+  // Kiểm tra xem đường link hình ảnh đã tồn tại trong danh sách sản phẩm khác (trừ sản phẩm đang cập nhật) hay không
+  var viTri = filteredArray.findIndex(function (dt) {
+    var isImage = dt.img.toLowerCase();
+    return isImage === checkImage && isImage !== currentImageLowerCase;
+  });
+
+  if (viTri !== -1) {
     document.querySelector(idErr).innerHTML = message;
     document.querySelector(idErr).style.display = "flex";
     return false;
