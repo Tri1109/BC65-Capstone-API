@@ -42,7 +42,13 @@ function addProduct() {
       "#tbTenSP",
       "Sản phẩm phải thuộc dòng Iphone hoặc Samsung"
     ) &&
-    kiemTraTrung(sp.name, productList, "#tbTenSP", "Tên sản phẩm đã tồn tại");
+    kiemTraTrung(
+      sp.name,
+      productList,
+      "#tbTenSP",
+      "Tên sản phẩm đã tồn tại",
+      sp.id
+    );
   // Kiểm tra giá
   isValid &=
     kiemTraRong(sp.price, "#tbGia", "Giá sản phẩm không được để trống") &&
@@ -57,7 +63,13 @@ function addProduct() {
   isValid &=
     kiemTraRong(sp.image, "#tbImg", "Không được để rỗng") &&
     checkImage(sp.image, "#tbImg", "Đường dẫn không đúng định dạng") &&
-    kiemTraTrungImage(sp.image, productList, "#tbImg", "Đường link đã tồn tại");
+    kiemTraTrungImage(
+      sp.image,
+      productList,
+      "#tbImg",
+      "Đường link đã tồn tại",
+      sp.id
+    );
 
   if (isValid) {
     productServ
@@ -108,7 +120,13 @@ function updateProduct() {
       "#tbTenSP",
       "Sản phẩm phải thuộc dòng Iphone hoặc Samsung"
     ) &&
-    kiemTraTrung(sp.name, productList, "#tbTenSP", "Tên sản phẩm đã tồn tại");
+    kiemTraTrung(
+      sp.name,
+      productList,
+      "#tbTenSP",
+      "Tên sản phẩm đã tồn tại",
+      sp.id
+    );
   // Kiểm tra giá
   isValid &=
     kiemTraRong(sp.price, "#tbGia", "Giá sản phẩm không được để trống") &&
@@ -123,7 +141,14 @@ function updateProduct() {
   isValid &=
     kiemTraRong(sp.image, "#tbImg", "Không được để rỗng") &&
     checkImage(sp.image, "#tbImg", "Đường dẫn không đúng định dạng") &&
-    kiemTraTrungImage(sp.image, productList, "#tbImg", "Đường link đã tồn tại");
+    kiemTraTrungImage(
+      sp.image,
+      productList,
+      "#tbImg",
+      "Đường link đã tồn tại",
+      sp.id,
+      sp.image
+    );
 
   if (isValid) {
     productServ
