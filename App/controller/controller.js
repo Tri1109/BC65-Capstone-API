@@ -31,7 +31,7 @@ function renderProductList(ProductList) {
           <td class="htmlTd" >${product.id}</td>
           <td class="htmlTd" >${product.name}</td>
           <td class="htmlTd" >${product.price}</td>
-          <td class="htmlTd" style = "width:200px"><img src="${product.img}" style="width:100%" alt="" class="my-5"></td>
+          <td class="htmlTd" style = "width:200px"><img src="${product.image}" style="width:100%" alt="" class="my-5"></td>
           <td class="htmlTd" >${product.desc}</td>
           <td class="htmlTd">
           <button class="btn btn-warning m-1" style="width:100px" onclick="editProduct('${product.id}')">Edit</button>

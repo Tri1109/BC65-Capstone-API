@@ -25,7 +25,7 @@ document.getElementById("myModal").onclick = function () {
   $("#updateProduct").hide();
   $("#addProduct").show();
 };
-
+//thêm
 function addProduct() {
   var sp = getInfo();
   var isValid = kiemTraRong(
@@ -58,18 +58,11 @@ function addProduct() {
   isValid &= kiemTraRong(sp.backCamera, "#tbBack", "Không được để rỗng");
   isValid &= kiemTraRong(sp.frontCamera, "#tbFront", "Không được để rỗng");
   isValid &= kiemTraRong(sp.desc, "#tbMoTa", "Không được để rỗng");
-  isValid &= kiemTraLoai("sp.type", "#tbLoai", "Vui lòng chọn loại điện thoại");
+  isValid &= kiemTraLoai(sp.type, "#tbLoai", "Vui lòng chọn loại điện thoại");
   // Kiểm tra định dạng file IMG
   isValid &=
     kiemTraRong(sp.image, "#tbImg", "Không được để rỗng") &&
-    checkImage(sp.image, "#tbImg", "Đường dẫn không đúng định dạng") &&
-    kiemTraTrungImage(
-      sp.image,
-      productList,
-      "#tbImg",
-      "Đường link đã tồn tại",
-      sp.id
-    );
+    checkImage(sp.image, "#tbImg", "Đường dẫn không đúng định dạng");
 
   if (isValid) {
     productServ
@@ -140,15 +133,7 @@ function updateProduct() {
   // Kiểm tra định dạng file IMG
   isValid &=
     kiemTraRong(sp.image, "#tbImg", "Không được để rỗng") &&
-    checkImage(sp.image, "#tbImg", "Đường dẫn không đúng định dạng") &&
-    kiemTraTrungImage(
-      sp.image,
-      productList,
-      "#tbImg",
-      "Đường link đã tồn tại",
-      sp.id,
-      sp.image
-    );
+    checkImage(sp.image, "#tbImg", "Đường dẫn không đúng định dạng");
 
   if (isValid) {
     productServ
