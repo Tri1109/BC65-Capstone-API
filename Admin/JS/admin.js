@@ -61,8 +61,9 @@ function addProduct() {
   isValid &= kiemTraLoai(sp.type, "#tbLoai", "Vui lòng chọn loại điện thoại");
   // Kiểm tra định dạng file IMG
   isValid &=
-    kiemTraRong(sp.image, "#tbImg", "Không được để rỗng") &&
-    checkImage(sp.image, "#tbImg", "Đường dẫn không đúng định dạng");
+    kiemTraRong(sp.img, "#tbImg", "Không được để rỗng") &&
+    checkImage(sp.img, "#tbImg", "Đường dẫn không đúng định dạng") &&
+    kiemTraTrungImage(sp.img, productList, "#tbImg", "Đường Link Đã Tồn Tại");
 
   if (isValid) {
     productServ
@@ -132,8 +133,9 @@ function updateProduct() {
   isValid &= kiemTraLoai(sp.type, "#tbLoai", "Vui lòng chọn loại điện thoại");
   // Kiểm tra định dạng file IMG
   isValid &=
-    kiemTraRong(sp.image, "#tbImg", "Không được để rỗng") &&
-    checkImage(sp.image, "#tbImg", "Đường dẫn không đúng định dạng");
+    kiemTraRong(sp.img, "#tbImg", "Không được để rỗng") &&
+    checkImage(sp.img, "#tbImg", "Đường dẫn không đúng định dạng") &&
+    kiemTraTrungImage(sp.img, productList, "#tbImg", "Đường Link Đã Tồn Tại");
 
   if (isValid) {
     productServ

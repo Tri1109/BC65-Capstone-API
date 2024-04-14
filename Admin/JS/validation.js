@@ -87,3 +87,22 @@ function kiemTraTrung(value, array, idErr, message, currentId) {
     return true;
   }
 }
+function kiemTraTrungImage(value, array, idErr, message, currentImage) {
+  var checkImage = value.toLowerCase();
+  var currentImageLowerCase = currentImage ? currentImage.toLowerCase() : null; // Thêm kiểm tra
+
+  // Kiểm tra xem đường link hình ảnh đã tồn tại trong danh sách sản phẩm (trừ sản phẩm đang cập nhật) hay không
+  var viTri = array.findIndex(function (dt) {
+    var isImage = dt.img.toLowerCase();
+    return isImage === checkImage && isImage !== currentImageLowerCase;
+  });
+
+  if (viTri !== -1) {
+    document.querySelector(idErr).innerHTML = message;
+    document.querySelector(idErr).style.display = "flex";
+    return false;
+  } else {
+    document.querySelector(idErr).innerHTML = "";
+    return true;
+  }
+}
