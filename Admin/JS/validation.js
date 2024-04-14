@@ -87,26 +87,12 @@ function kiemTraTrung(value, array, idErr, message, currentId) {
     return true;
   }
 }
-
-// Kiểm tra trùng đường link hình ảnh, tránh so sánh với phần tử đang cập nhật
-function kiemTraTrungImage(
-  value,
-  array,
-  idErr,
-  message,
-  currentId,
-  currentImage
-) {
+function kiemTraTrungImage(value, array, idErr, message, currentImage) {
   var checkImage = value.toLowerCase();
-  var currentImageLowerCase = currentImage.toLowerCase();
+  var currentImageLowerCase = currentImage ? currentImage.toLowerCase() : null; // Thêm kiểm tra
 
-  // Lọc ra những sản phẩm có ID khác với currentId
-  var filteredArray = array.filter(function (dt) {
-    return dt.id !== currentId;
-  });
-
-  // Kiểm tra xem đường link hình ảnh đã tồn tại trong danh sách sản phẩm khác (trừ sản phẩm đang cập nhật) hay không
-  var viTri = filteredArray.findIndex(function (dt) {
+  // Kiểm tra xem đường link hình ảnh đã tồn tại trong danh sách sản phẩm (trừ sản phẩm đang cập nhật) hay không
+  var viTri = array.findIndex(function (dt) {
     var isImage = dt.img.toLowerCase();
     return isImage === checkImage && isImage !== currentImageLowerCase;
   });

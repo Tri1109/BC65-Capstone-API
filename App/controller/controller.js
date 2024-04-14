@@ -5,7 +5,7 @@ function getInfo() {
   var screen = document.getElementById("screen").value;
   var backCamera = document.getElementById("backCamera").value;
   var frontCamera = document.getElementById("frontCamera").value;
-  var image = document.getElementById("HinhSP").value;
+  var img = document.getElementById("HinhSP").value;
   var desc = document.getElementById("MoTaSP").value;
   var type = document.getElementById("type").value;
 
@@ -16,7 +16,7 @@ function getInfo() {
     screen,
     backCamera,
     frontCamera,
-    image,
+    img,
     desc,
     type
   );
