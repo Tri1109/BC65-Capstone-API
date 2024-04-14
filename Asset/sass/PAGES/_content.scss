@@ -1,0 +1,92 @@
+//------------------Admin------------------
+.admin_content {
+    padding: 100px 50px;
+    background-color: white;
+    .top {
+      padding: 10px;
+      background-color:#1A237E;
+      border-radius: 30px 30px 0px 0px;
+    }
+  
+    .tieude {
+      border-bottom: 1pt solid black;
+      th {
+        padding: 10px;
+        font-size: 1.1rem;
+      }
+    }
+    @media (max-width:768px) {
+      .tieude th {
+        font-size: 13px;
+      }
+    }
+  
+    // Popup-box 
+    .form-input { 
+      padding: 10px; 
+      margin-bottom: 20px; 
+      border: 1px solid #ccc; 
+      border-radius: 8px; 
+      font-size: 16px; 
+      width: 100%; 
+      box-sizing: border-box; 
+    } 
+  }
+  
+  //---------------------Customer---------------
+  .customer_content {
+    padding: 50px 0;
+    justify-content: space-evenly;
+  }
+  .product {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    width: 200px; /* Kích thước ngắn gọn */
+    transition: transform 0.3s; /* Hiệu ứng hover */
+  }
+  
+  .product img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Hiệu ứng hover */
+  .product:hover {
+    transform: scale(1.05); /* Phóng to sản phẩm khi hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Hiển thị bóng đổ */
+  }
+  
+  @media (max-width: 1200px) {
+    .modal-body table {
+      font-size: 18px; 
+    }
+  
+    .modal-body table th,
+    .modal-body table td {
+      padding: 4px; 
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .modal-body table {
+      font-size: 15px; 
+    }
+  
+    .modal-body table th,
+    .modal-body table td {
+      padding: 4px; 
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .modal-body table {
+      font-size: 13px; 
+    }
+  
+    .modal-body table th,
+    .modal-body table td {
+      padding: 4px;
+    }
+  }
