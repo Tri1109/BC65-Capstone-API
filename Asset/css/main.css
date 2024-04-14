@@ -1,21 +1,56 @@
+@charset "UTF-8";
 body {
   padding: 0;
   margin: 0;
-  background-image: url("../images/background.jpg");
+  background-image: url(/Asset/images/background.jpg);
   background-size: cover;
 }
 
+.btn-open-popup {
+  background-color: #fefefe;
+  border: none;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#tblDanhSachSP td button {
+  width: 100px;
+}
+
+@media (max-width: 768px) {
+  table thead td .btn {
+    font-size: 12px;
+  }
+  #tblDanhSachSP {
+    font-size: 13px;
+  }
+  #tblDanhSachSP td button {
+    font-size: 13px;
+    width: 50px;
+  }
+}
+@media (max-width: 576px) {
+  .modal-body table td button {
+    font-size: 15px;
+  }
+  .modal-footer button {
+    font-size: 13px;
+  }
+}
 .nav {
-  background-color: #1a237e;
+  background-color: #1A237E;
   display: flex;
   align-items: center;
 }
 .nav .nav-header {
   flex: 0.95;
   padding-left: 1rem;
-}
-.nav .nav-title {
-  width: 20%;
 }
 .nav .nav-title a {
   font-size: 22px;
@@ -37,48 +72,13 @@ body {
   color: #efefef;
   cursor: pointer;
 }
-
-.admin_content {
-  padding: 200px 100px;
-  background-color: white;
-}
-.admin_content .top {
-  padding: 10px;
-  background-color: #1a237e;
-  border-radius: 30px 30px 0px 0px;
-}
-.admin_content .top .btn-open-popup {
-  background-color: #fefefe;
-  border: none;
-  padding: 5px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-.admin_content .tieude {
-  border-bottom: 1pt solid black;
-  text-align: center;
-}
-.admin_content .tieude th {
-  padding: 10px;
-  font-size: 1.1rem;
-}
-.admin_content .form-input {
-  padding: 10px;
-  margin-top: 15px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.customer_content {
-  padding: 250px 0;
+@media screen and (max-width: 576px) {
+  .nav a {
+    font-size: 15px;
+  }
+  .nav .nav-header a {
+    font-size: 19px;
+  }
 }
 
 .footer {
@@ -118,21 +118,105 @@ body {
   margin-top: 0px;
   color: white !important;
 }
+.footer .container-footer .row h6 i {
+  margin-right: 20px;
+}
+@media screen and (max-width: 576px) {
+  .footer .container-footer .row h6 {
+    font-size: 20px;
+  }
+  .footer .container-footer .row h6 i {
+    margin-right: 0;
+  }
+}
 .footer .copyright {
   background-color: rgba(0, 0, 0, 0.05);
   padding: 20px;
   margin: 0 auto;
   color: white;
   text-align: center;
-} /*# sourceMappingURL=main.css.map */
+}
 
-.sp-thongbao {
-  color: red;
-  margin-left: 2px;
-  display: none;
+.admin_content {
+  padding: 100px 50px;
+  background-color: white;
 }
-.htmlTd {
-  border: 1px solid #000;
-  text-align: center;
-  margin-bottom: 10px;
+.admin_content .top {
+  padding: 10px;
+  background-color: #1A237E;
+  border-radius: 30px 30px 0px 0px;
 }
+.admin_content .tieude {
+  border-bottom: 1pt solid black;
+}
+.admin_content .tieude th {
+  padding: 10px;
+  font-size: 1.1rem;
+}
+@media (max-width: 768px) {
+  .admin_content .tieude th {
+    font-size: 13px;
+  }
+}
+.admin_content .form-input {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.customer_content {
+  padding: 50px 0;
+  justify-content: space-evenly;
+}
+
+.product {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  width: 200px; /* Kích thước ngắn gọn */
+  transition: transform 0.3s; /* Hiệu ứng hover */
+}
+
+.product img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Hiệu ứng hover */
+.product:hover {
+  transform: scale(1.05); /* Phóng to sản phẩm khi hover */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Hiển thị bóng đổ */
+}
+
+@media (max-width: 1200px) {
+  .modal-body table {
+    font-size: 18px;
+  }
+  .modal-body table th,
+  .modal-body table td {
+    padding: 4px;
+  }
+}
+@media (max-width: 768px) {
+  .modal-body table {
+    font-size: 15px;
+  }
+  .modal-body table th,
+  .modal-body table td {
+    padding: 4px;
+  }
+}
+@media (max-width: 576px) {
+  .modal-body table {
+    font-size: 13px;
+  }
+  .modal-body table th,
+  .modal-body table td {
+    padding: 4px;
+  }
+}/*# sourceMappingURL=main.css.map */

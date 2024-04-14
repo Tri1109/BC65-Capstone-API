@@ -58,7 +58,7 @@ function addProduct() {
   isValid &= kiemTraRong(sp.backCamera, "#tbBack", "Không được để rỗng");
   isValid &= kiemTraRong(sp.frontCamera, "#tbFront", "Không được để rỗng");
   isValid &= kiemTraRong(sp.desc, "#tbMoTa", "Không được để rỗng");
-  isValid &= kiemTraLoai("sp.type", "#tbLoai", "Vui lòng chọn loại điện thoại");
+  isValid &= kiemTraLoai(sp.type, "#tbLoai", "Vui lòng chọn loại điện thoại");
   // Kiểm tra định dạng file IMG
   isValid &=
     kiemTraRong(sp.image, "#tbImg", "Không được để rỗng") &&
