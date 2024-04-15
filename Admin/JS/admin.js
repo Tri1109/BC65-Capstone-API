@@ -134,8 +134,7 @@ function updateProduct() {
   // Kiểm tra định dạng file IMG
   isValid &=
     kiemTraRong(sp.img, "#tbImg", "Không được để rỗng") &&
-    checkImage(sp.img, "#tbImg", "Đường dẫn không đúng định dạng") &&
-    kiemTraTrungImage(sp.img, productList, "#tbImg", "Đường Link Đã Tồn Tại");
+    checkImage(sp.img, "#tbImg", "Đường dẫn không đúng định dạng");
 
   if (isValid) {
     productServ
